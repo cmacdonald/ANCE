@@ -260,24 +260,15 @@ class BiEncoder(nn.Module):
         
 
 # --------------------------------------------------
-#ALL_MODELS = sum(
-#    (
-#        tuple(conf.pretrained_config_archive_map.keys())
-#        for conf in (
-#            RobertaConfig,
-#        )
-#    ),
-#    (),
-#)
-
-# Quick & Dirty Hack
 ALL_MODELS = sum(
     (
-        tuple(ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP.keys())
+        tuple(conf.pretrained_config_archive_map.keys())
+        for conf in (
+            ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP,
+        )
     ),
     (),
 )
-
 
 default_process_fn = triple_process_fn
 
