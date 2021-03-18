@@ -14,15 +14,15 @@ from torch import nn
 import torch.nn.functional as F
 from ance.data.process_fn import triple_process_fn, triple2dual_process_fn
 
-from transformers.models.roberta.configuration_roberta import RobertaConfig
-from transformers.models.roberta.configuration_roberta import ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP
-from transformers.models.roberta.modeling_roberta import RobertaModel
-from transformers.models.roberta.modeling_roberta import RobertaForSequenceClassification
-from transformers.models.roberta.tokenization_roberta_fast import RobertaTokenizer
+from transformers.configuration_roberta import RobertaConfig
+from transformers.configuration_roberta import ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP
+from transformers.modeling_roberta import RobertaModel
+from transformers.modeling_roberta import RobertaForSequenceClassification
+from transformers.tokenization_roberta import RobertaTokenizer
 
-from transformers.models.bert.configuration_bert import BertConfig
-from transformers.models.bert.modeling_bert import BertModel
-from transformers.models.bert.tokenization_bert_fast import BertTokenizer
+from transformers.configuration_bert import BertConfig
+from transformers.modeling_bert import BertModel
+from transformers.tokenization_bert import BertTokenizer
 
 
 class EmbeddingMixin:
