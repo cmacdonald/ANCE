@@ -237,7 +237,7 @@ def PassagePreprocessingFn(args, line, tokenizer):
 
     token_ids = tokenizer.encode(title, text_pair=text, add_special_tokens=True,
                                       max_length=args.max_seq_length,
-                                      pad_to_max_length=False)
+                                      pad_to_max_length=False,truncation=True)
 
     seq_len = args.max_seq_length
     passage_len = len(token_ids)
@@ -256,7 +256,7 @@ def PassagePreprocessingFn(args, line, tokenizer):
 
 def QueryPreprocessingFn(args, qid, text, tokenizer):
     token_ids = tokenizer.encode(text, add_special_tokens=True, max_length=args.max_seq_length,
-                                       pad_to_max_length=False)
+                                       pad_to_max_length=False,truncation=True)
 
     seq_len = args.max_seq_length
     passage_len = len(token_ids)
