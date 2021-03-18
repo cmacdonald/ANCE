@@ -51,7 +51,7 @@ class EmbeddingMixin:
 
     def masked_mean_or_first(self, emb_all, mask):
         # emb_all is a tuple from bert - sequence output, pooler
-        assert isinstance(emb_all, tuple), "emb_all should be a tuple but it is a " + type(emb_all)
+#        assert isinstance(emb_all, tuple)#, "emb_all should be a tuple but it is a " + str(type(emb_all))
         if self.use_mean:
             return self.masked_mean(emb_all[0], mask)
         else:
