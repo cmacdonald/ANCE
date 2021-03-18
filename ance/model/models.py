@@ -14,6 +14,7 @@ from transformers import (
 import torch.nn.functional as F
 from ance.data.process_fn import triple_process_fn, triple2dual_process_fn
 
+from transformers.models.roberta.configuration_roberta import RobertaConfig
 
 class EmbeddingMixin:
     """
@@ -263,7 +264,7 @@ class BiEncoder(nn.Module):
 # Quick & Dirty Hack
 ALL_MODELS = sum(
     (
-        tuple(RobertaConfig.ROBERTA_PRETRAINED_MODEL_ARCHIVE_LIST)
+        tuple(RobertaConfig.ROBERTA_PRETRAINED_MODEL_ARCHIVE_MAP)
     ),
     (),
 )
