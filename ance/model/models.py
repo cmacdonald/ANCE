@@ -2,19 +2,27 @@ import sys
 sys.path += ['../']
 import torch
 from torch import nn
-from transformers import (
-    RobertaConfig,
-    RobertaModel,
-    RobertaForSequenceClassification,
-    RobertaTokenizer,
-    BertModel,
-    BertTokenizer,
-    BertConfig
-)
+#from transformers import (
+#    RobertaConfig,
+#    RobertaModel,
+#    RobertaForSequenceClassification,
+#    RobertaTokenizer,
+#    BertModel,
+#    BertTokenizer,
+#    BertConfig
+#)
 import torch.nn.functional as F
 from ance.data.process_fn import triple_process_fn, triple2dual_process_fn
 
 from transformers.models.roberta.configuration_roberta import RobertaConfig
+from transformers.models.roberta.modeling_roberta import RobertaModel
+from transformers.models.roberta.modeling_roberta import RobertaForSequenceClassification
+from transformers.models.roberta.tokenization_roberta import RobertaTokenizer
+
+from transformers.models.bert.configuration_bert import BertConfig
+from transformers.models.bert.modeling_bert import BertModel
+from transformers.models.bert.tokenization_bert import BertTokenizer
+
 
 class EmbeddingMixin:
     """
