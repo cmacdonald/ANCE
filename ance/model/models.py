@@ -272,7 +272,7 @@ class BiEncoder(nn.Module):
 # Quick & Dirty Hack
 ALL_MODELS = sum(
     (
-        tuple(RobertaConfig.ROBERTA_PRETRAINED_MODEL_ARCHIVE_MAP)
+        tuple(RobertaConfig.ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP)
     ),
     (),
 )
