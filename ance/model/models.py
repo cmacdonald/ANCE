@@ -15,6 +15,7 @@ import torch.nn.functional as F
 from ance.data.process_fn import triple_process_fn, triple2dual_process_fn
 
 from transformers.models.roberta.configuration_roberta import RobertaConfig
+from transformers.models.roberta.configuration_roberta import ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP
 from transformers.models.roberta.modeling_roberta import RobertaModel
 from transformers.models.roberta.modeling_roberta import RobertaForSequenceClassification
 from transformers.models.roberta.tokenization_roberta import RobertaTokenizer
@@ -272,7 +273,7 @@ class BiEncoder(nn.Module):
 # Quick & Dirty Hack
 ALL_MODELS = sum(
     (
-        tuple(RobertaConfig.ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP)
+        tuple(ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP)
     ),
     (),
 )
