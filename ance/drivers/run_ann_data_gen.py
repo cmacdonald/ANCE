@@ -123,7 +123,6 @@ def load_model(args, checkpoint_path):
         from_tf=bool(".ckpt" in args.model_name_or_path),
         config=config,
         cache_dir=args.cache_dir if args.cache_dir else None,
-        verbose=False,
     )
     model.to(args.device)
     logger.info("Inference parameters %s", args)
