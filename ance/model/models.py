@@ -2,17 +2,27 @@ import sys
 sys.path += ['../']
 import torch
 from torch import nn
-from transformers import (
-    RobertaConfig,
-    RobertaModel,
-    RobertaForSequenceClassification,
-    RobertaTokenizer,
-    BertModel,
-    BertTokenizer,
-    BertConfig
-)
+#from transformers import (
+#    RobertaConfig,
+#    RobertaModel,
+#    RobertaForSequenceClassification,
+#    RobertaTokenizer,
+#    BertModel,
+#    BertTokenizer,
+#    BertConfig
+#)
 import torch.nn.functional as F
 from ance.data.process_fn import triple_process_fn, triple2dual_process_fn
+
+from transformers.configuration_roberta import RobertaConfig
+from transformers.configuration_roberta import ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP
+from transformers.modeling_roberta import RobertaModel
+from transformers.modeling_roberta import RobertaForSequenceClassification
+from transformers.tokenization_roberta import RobertaTokenizer
+
+from transformers.configuration_bert import BertConfig
+from transformers.modeling_bert import BertModel
+from transformers.tokenization_bert import BertTokenizer
 
 
 class EmbeddingMixin:
@@ -41,7 +51,7 @@ class EmbeddingMixin:
 
     def masked_mean_or_first(self, emb_all, mask):
         # emb_all is a tuple from bert - sequence output, pooler
-        assert isinstance(emb_all, tuple)
+#        assert isinstance(emb_all, tuple), "emb_all should be a tuple but it is a " + str(type(emb_all))
         if self.use_mean:
             return self.masked_mean(emb_all[0], mask)
         else:
@@ -252,14 +262,13 @@ class BiEncoder(nn.Module):
 # --------------------------------------------------
 ALL_MODELS = sum(
     (
-        tuple(conf.pretrained_config_archive_map.keys())
+        tuple(conf.keys())
         for conf in (
-            RobertaConfig,
+            ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP,
         )
     ),
     (),
 )
-
 
 default_process_fn = triple_process_fn
 

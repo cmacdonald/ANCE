@@ -29,7 +29,7 @@ def dual_process_fn(line, i, tokenizer, args):
 
         text = cells[1].strip()
         input_id_a = tokenizer.encode(
-            text, add_special_tokens=True, max_length=args.max_seq_length,)
+            text, add_special_tokens=True, max_length=args.max_seq_length,truncation=True)
         token_type_ids_a = [0] * len(input_id_a)
         attention_mask_a = [
             1 if mask_padding_with_zero else 0] * len(input_id_a)
@@ -57,7 +57,7 @@ def triple_process_fn(line, i, tokenizer, args):
 
         for text in cells:
             input_id_a = tokenizer.encode(
-                text.strip(), add_special_tokens=True, max_length=args.max_seq_length,)
+                text.strip(), add_special_tokens=True, max_length=args.max_seq_length,truncation=True)
             token_type_ids_a = [0] * len(input_id_a)
             attention_mask_a = [
                 1 if mask_padding_with_zero else 0] * len(input_id_a)
@@ -86,7 +86,7 @@ def triple2dual_process_fn(line, i, tokenizer, args):
 
         for i, text in enumerate(cells):
             input_id_a = tokenizer.encode(
-                text.strip(), add_special_tokens=True, max_length=args.max_seq_length,)
+                text.strip(), add_special_tokens=True, max_length=args.max_seq_length,truncation=True)
             token_type_ids_a = [0] * len(input_id_a)
             attention_mask_a = [
                 1 if mask_padding_with_zero else 0] * len(input_id_a)

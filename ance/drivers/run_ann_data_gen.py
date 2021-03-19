@@ -116,6 +116,7 @@ def load_model(args, checkpoint_path):
         args.model_name_or_path,
         do_lower_case=True,
         cache_dir=args.cache_dir if args.cache_dir else None,
+        verbose=False,
     )
     model = configObj.model_class.from_pretrained(
         args.model_name_or_path,
